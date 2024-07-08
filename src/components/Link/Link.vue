@@ -10,8 +10,8 @@ Nuxt-Link extended description:
 
 Props:
 
-Required - to, ariaLabel
-Optional - rel, target, slash
+Required - to
+Optional - rel, target, slash, ariaLabel
 
 Required config layout for project urls:
 
@@ -45,7 +45,7 @@ const props = defineProps({
   },
   ariaLabel: {
     type: String,
-    required: true // i.e 'Read more about X's new Y'
+    required: false // i.e 'Read more about X's new Y'
   },
   rel: {
     type: String,

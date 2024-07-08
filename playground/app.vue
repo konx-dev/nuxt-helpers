@@ -7,9 +7,7 @@
       }}</kx-link>
     </div>
     <div class="flex flex-col gap-4 my-20">
-      <kx-link v-for="(link, index) in testData" :aria-label="`link to ${link.title}`" :to="link.value" :key="index">{{
-        link.title
-      }}</kx-link>
+      <kx-link v-for="(link, index) in testData" :to="link.value" :key="index">{{ link.title }}</kx-link>
     </div>
   </div>
 </template>
