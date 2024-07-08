@@ -45,7 +45,7 @@ const props = defineProps({
   },
   ariaLabel: {
     type: String,
-    required: false // i.e 'Read more about X's new Y'
+    default: null // i.e 'Read more about X's new Y'
   },
   rel: {
     type: String,
@@ -79,7 +79,7 @@ const link = computed(() => {
 });
 
 const isInternal = computed(() => {
-  // Wrapper for url check to catch numbers, strings, null, undefined, object objects
+  // Wrapper for url check to catch numbers, strings, null, undefined, objects etc
   if (linkIsValid) {
     // Step 1. check for mailto:/tel: here, short circuit if found
     if (props.to.includes('mailto') || props.to.includes('tel:')) {
@@ -92,11 +92,13 @@ const isInternal = computed(() => {
     // Step 3. nothing left, has to be a external url
     return false;
   }
+
+  return null;
 });
 
 // Check if props.to is a valid url
 function isValidUrl(string) {
-  let url;
+  let url = null;
   try {
     url = new URL(string);
     return true;
@@ -111,12 +113,14 @@ function retrieveProjectUrls() {
     const availableUrls = config.public.urls;
     const extractedValues = [];
 
-    for (const key in availableUrls) {
+    for (const key of Object.keys(availableUrls)) {
       extractedValues.push(availableUrls[key]);
     }
 
     return extractedValues;
   }
+
+  return null;
 }
 
 function checkProjectUrls() {
@@ -133,13 +137,13 @@ function checkProjectUrls() {
   return matchFound;
 }
 
-function buildInternalLink(link) {
+function buildInternalLink(value) {
   if (props.slash === 'prepend') {
-    return `/${link}`;
+    return `/${value}`;
   } else if (props.slash === 'append') {
-    return `${link}/`;
+    return `${value}/`;
   } else {
-    return link;
+    return value;
   }
 }
 </script>

@@ -22,8 +22,8 @@ const testData = [
   { title: 'env:staging (terms & conditions)', value: 'http://staging.konx.dev/terms-conditions' },
   { title: 'env:dev (our team)', value: 'http://dev.konx.dev/our-team' },
   { title: 'mailto', value: 'mailto:person@email.com' },
-  { title: 'tel', value: 'tel:123456789' }
-  //{ title: 'null', value: null },
+  { title: 'tel', value: 'tel:123456789' },
+  { title: 'null', value: null }
   //{ title: 'undefined', value: undefined },
   //{ title: 'empty object', value: {} },
   //{ title: 'simple string', value: 'a string' },
