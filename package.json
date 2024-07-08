@@ -12,6 +12,7 @@
     "postinstall": "nuxt prepare playground"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.0",
     "nuxt": "latest"
   },
   "author": "konx.dev",
